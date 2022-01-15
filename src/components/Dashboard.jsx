@@ -12,6 +12,7 @@ const Dashboard = () => {
     const [loading, setloading] = useState(true);
 
     const fetchMovies = async() =>{
+        setloading(true)
         try{
             const response = await omdbapi({
                 s: searchText,
@@ -24,13 +25,13 @@ const Dashboard = () => {
 
     useEffect(() => {
         fetchMovies();
-    }, [page,searchText])
+    }, [page])
 
     return (
         <div className='flex flex-col min-h-screen text-white bg-slate-700'>
             <Header />
             <Search />
-            <Feed movieResult={movieResult}  loading={loading}/>
+            <Feed movieResult={movieResult}  loading={loading} page={page} setPage={setPage}/>
         </div>
     )
 }
