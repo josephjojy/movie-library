@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 
-import { omdbapi } from './apis/omdb'
+import { omdbapi } from '../apis/omdb'
 import Feed from './Feed'
 import Header from './Header'
 import Search from './Search'
