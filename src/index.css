@@ -5,13 +5,3 @@
 html,body{
   margin: 0;
 }
-
-.searchBox{
-  width: 60%;
-}
-
-@media only screen and (min-width: 900px) {
-  .searchBox{
-    width: 40%;
-  }
-}

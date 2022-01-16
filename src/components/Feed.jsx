@@ -2,12 +2,14 @@ import React from 'react'
 import Card from './Card'
 import { Pagination, PageLoader } from "@bigbinary/neetoui/v2";
 
-const Feed = ({ movieResult, loading, page, setPage }) => {
+const Feed = ({ movieResult, isLoading, page, setPage }) => {
 
-    if (loading)
-        return (<div className=' min-h-screen flex justify-center items-center'><PageLoader /></div>)
+    if (isLoading)
+        return (<div className=' min-h-screen flex justify-center items-center'><PageLoader color="white" /></div>)
+
     if (movieResult.Error)
         return (<div className='text-center text-red-700 font-medium mt-2'>{movieResult.Error}</div>)
+
     return (
         <div>
             <div className='flex flex-wrap justify-center mt-4'>
