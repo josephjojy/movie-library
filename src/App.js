@@ -1,17 +1,22 @@
 import React from 'react'
-import {Route, BrowserRouter, Switch} from 'react-router-dom'
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
 import Dashboard from './components/Dashboard'
 import MovieDetails from './components/MovieDetails'
+import ErrorBoundary from './components/ErrorPages/ErrorBoundary'
+import PageNotFound from './components/ErrorPages/PageNotFound'
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Switch>
-          <Route exact path='/' component={Dashboard} />
-          <Route exact path='/:id/details' component={MovieDetails} />
-        </Switch>
+        <ErrorBoundary>
+          <Switch>
+            <Route exact path='/' component={Dashboard} />
+            <Route exact path='/:id/details' component={MovieDetails} />
+            <Route component={PageNotFound} />
+          </Switch>
+        </ErrorBoundary>
       </BrowserRouter>
     </>
   )
