@@ -6,17 +6,19 @@ const Feed = ({ movieResult, loading, page, setPage }) => {
 
     if (loading)
         return (<div className=' min-h-screen flex justify-center items-center'><PageLoader /></div>)
+    if (movieResult.Error)
+        return (<div className='text-center text-red-700 font-medium mt-2'>{movieResult.Error}</div>)
     return (
         <div>
             <div className='flex flex-wrap justify-center mt-4'>
-                {movieResult?.Search.map((movie, index) => (
+                {movieResult?.Search?.map((movie, index) => (
                     <Card key={index} movie={movie} />
                 ))}
             </div>
             <div className='flex justify-center pb-8'>
                 <Pagination
                     count={movieResult.totalResults}
-                    navigate={(e)=>{setPage(e)}}
+                    navigate={(e) => { setPage(e) }}
                     pageNo={page}
                     pageSize={10}
                 />
